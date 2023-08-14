@@ -12,10 +12,14 @@ float headRadius = .6; // Bán kính của đầu
 
 float maxOuterRadius = 1;
 
-float totalNumberCircleDrawed = headRadius / 1.18;
+float totalLengthBee = headRadius / 1.18;
 float curCircleRadius = .33;
+float angleWing = 0;
+
+int timerCount = 0;
 
 bool isDrawing = false;
+bool isMaxAngleWing = false;
 
 const int CODE_YELLOW = 0;
 const int CODE_BROWN = 1;
@@ -63,24 +67,32 @@ void drawCircle(float innerRadius, float outerRadius, float zPoint) {
 }
 
 void yellow() {
+	GLfloat diffuse[] = { 1, .9, .1, 1.0 };// as khuếch tán
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
 	glColor3f(1, .9, .1);
 }
 
 void brown() {
+	GLfloat diffuse[] = { .8, .5, .1, 1.0 };// as khuếch tán
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
 	glColor3f(.8, .5, .1);
 }
 
 void black() {
+	GLfloat diffuse[] = { 0, 0, 0, 1.0 };// as khuếch tán
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
 	glColor3f(0, 0, 0);
 }
 
 void wingColor() {
-	glColor3f(0.7, 1, 0.9);
+	GLfloat diffuse[] = { .1, .8, 1, 1.0 };// as khuếch tán
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+	glColor3f(.1, .8, 1);
 }
 
 void resetValueVariable() {
 	maxOuterRadius = 1;
-	totalNumberCircleDrawed = headRadius / 1.18;
+	totalLengthBee = headRadius / 1.18;
 	curCircleRadius = .33;
 }
 
@@ -97,8 +109,8 @@ void drawCircles(int numberCircle, float startRadius, int color, int mode, float
 			black();
 		}
 		float radius = mode == MODE_UP ? i * increaseRadius : -i * increaseRadius;
-		totalNumberCircleDrawed += dis;
-		drawCircle(.04, startRadius + radius, totalNumberCircleDrawed);
+		totalLengthBee += dis;
+		drawCircle(.04, startRadius + radius, totalLengthBee);
 		curCircleRadius = mode == MODE_UP ? curCircleRadius + increaseRadius : curCircleRadius - increaseRadius;
 	}
 }
@@ -115,12 +127,12 @@ void drawArc(float startX, float startY, float startZ, float radius, float start
 }
 
 void display() {
-	if (!isDrawing) {
-		isDrawing = true;
+	/*if (!isDrawing) {
+		isDrawing = true;*/
 
-		float eyeX = 7;
-		float eyeY = 7;
-		float eyeZ = 7;
+		float eyeX = 0;
+		float eyeY = 0;
+		float eyeZ = 5;
 		float centerX = 0;
 		float centerY = 0;
 		float centerZ = 0;
@@ -135,6 +147,16 @@ void display() {
 		gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
 		drawOxyz();
 
+		//glutPostRedisplay();
+
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);// mặc định đc truyền màu light1-7 k dc màu đen
+		GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
+		GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
+		GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
+		glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
+		glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+
 		//Vẽ đầu
 		yellow();
 		glPushMatrix();
@@ -145,7 +167,7 @@ void display() {
 		//Vẽ mắt trái
 		black();
 		glPushMatrix();
-		glTranslatef(headX + headRadius / 3.0, headY + headRadius / 3.0, headZ + headRadius - .01);
+		glTranslatef(headX + headRadius * .33, headY + headRadius * .33, headZ + headRadius - .01);
 		glScalef(1, 1.25, 1);
 		glutSolidSphere(.04, 30, 30);
 		glPopMatrix();
@@ -153,21 +175,21 @@ void display() {
 		//Vẽ mắt phải
 		black();
 		glPushMatrix();
+		glTranslatef(headX - headRadius * .33, headY + headRadius * .33, headZ + headRadius - .01);
 		glScalef(1, 1.25, 1);
-		glTranslatef(headX - headRadius / 3.0, headY + headRadius / 3.0, headZ + headRadius - .01);
 		glutSolidSphere(.04, 30, 30);
 		glPopMatrix();
 
 		//Vẽ miệng cười
 		black();
 		glPushMatrix();
-		drawArc(0, 0, headRadius * .87, headRadius / 2, PI, 2* PI, 20);
+		drawArc(headX, headY, headZ + headRadius * .87, headRadius / 2, PI, 2* PI, 20);
 		glPopMatrix();
 
 		//Vẽ râu trái
 		brown();
 		glPushMatrix();
-		drawArc(headX - headRadius * 1.3, headRadius * .87, headRadius / 2, headRadius, 0, PI / 2, 20, .01);
+		drawArc(headX - headRadius * 1.3, headY + headRadius * .87, headZ + headRadius / 2, headRadius, 0, PI / 2, 20, .01);
 		glPopMatrix();
 
 		//Vẽ quả trái
@@ -180,7 +202,7 @@ void display() {
 		//Vẽ râu phải
 		brown();
 		glPushMatrix();
-		drawArc(headX + headRadius * 1.3, headRadius * .87, headRadius / 2, headRadius, PI, PI / 2, 20, .01);
+		drawArc(headX + headRadius * 1.3, headY + headRadius * .87, headZ + headRadius / 2, headRadius, PI, PI / 2, 20, .01);
 		glPopMatrix();
 
 		//Vẽ quả phải
@@ -224,34 +246,35 @@ void display() {
 		//Vẽ cánh trái
 		wingColor();
 		glPushMatrix();
-		glScalef(.1, 1.25, .3);
-		glRotatef(60.0, headX, headY + headRadius * 1.3, headZ - totalNumberCircleDrawed * 1.3);
-		glTranslatef(headX, headY + headRadius * 1.3,  headZ - totalNumberCircleDrawed * 1.3);
+		glRotatef(angleWing, 0, 0, -1);
+		glRotatef(40, 0, 0, 1);
+		glTranslatef(headX, headY + headRadius * 3,  headZ - totalLengthBee * .5);
+		glScalef(.1, 1.3, .5);
 		glutSolidSphere(1, 30, 30);
 		glPopMatrix();
 
 		//Vẽ cánh trái
 		wingColor();
 		glPushMatrix();
-		glScalef(.1, 1.25, .3);
-		glRotatef(-60.0, headX, headY + headRadius * 1.3, headZ - totalNumberCircleDrawed * 1.3);
-		glTranslatef(headX, headY + headRadius * 1.3, headZ - totalNumberCircleDrawed * 1.3);
+		glRotatef(angleWing, 0,0,1);
+		glRotatef(40, 0, 0, -1);
+		glTranslatef(headX, headY + headRadius * 3, headZ - totalLengthBee * .5);
+		glScalef(.1, 1.3, .5);
 		glutSolidSphere(1, 30, 30);
 		glPopMatrix();
 
 		//Vẽ nọc
 		black();
 		glPushMatrix();
-		glTranslatef(headX, headY, headZ - totalNumberCircleDrawed);
+		glTranslatef(headX, headY, headZ - totalLengthBee);
 		glScalef(1, .2, 1);
 		glutSolidTetrahedron();
 		glPopMatrix();
 
-
 		glFlush();
 
-		isDrawing = false;
-	}
+	/*	isDrawing = false;
+	}*/
 }
 
 void reshape(int w, int h) {
@@ -288,10 +311,25 @@ void mouseClick(int button, int state, int x, int y) {
 }
 
 void update(int value) {
-	headY += 0.02;
+	/*headY += .2;
+	headZ += .3;*/
+
+	if (!isMaxAngleWing) {
+		angleWing += 2;
+		if (angleWing >= 90) {
+			isMaxAngleWing = true;
+		}
+	}
+	else {
+		angleWing -= 2;
+		if (angleWing <= 40) {
+			isMaxAngleWing = false;
+		}
+	}
+
 	resetValueVariable();
 	glutPostRedisplay();
-	glutTimerFunc(5, update, 0);
+	glutTimerFunc(1, update, 0);
 }
 
 
@@ -305,7 +343,7 @@ int main(int argc, char** argv) {
 	glutSpecialFunc(keyPress);
 	glutMouseFunc(mouseClick);
 	glutDisplayFunc(display);
-	glutTimerFunc(0, update, 0);
+	glutTimerFunc(0, update, 1);
 	glutReshapeFunc(reshape);
 	glutMainLoop();
 	return 0;
