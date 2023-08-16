@@ -21,6 +21,17 @@ int timerCount = 0;
 bool isDrawing = false;
 bool isMaxAngleWing = false;
 
+
+float eyeX = 5;
+float eyeY = 5;
+float eyeZ = 5;
+float centerX = 0;
+float centerY = 0;
+float centerZ = 0;
+float upX = 0;
+float upY = 1;
+float upZ = 0;
+
 const int CODE_YELLOW = 0;
 const int CODE_BROWN = 1;
 const int CODE_BLACK = 2;
@@ -129,16 +140,6 @@ void drawArc(float startX, float startY, float startZ, float radius, float start
 void display() {
 	/*if (!isDrawing) {
 		isDrawing = true;*/
-
-		float eyeX = 0;
-		float eyeY = 0;
-		float eyeZ = 5;
-		float centerX = 0;
-		float centerY = 0;
-		float centerZ = 0;
-		float upX = 0;
-		float upY = 1;
-		float upZ = 0;
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glColor3f(0.0, 0.0, 0.0);
@@ -288,8 +289,19 @@ void reshape(int w, int h) {
 void keyPress(int key, int x, int y) {
 	switch (key)
 	{
-
-		default:
+	case GLUT_KEY_UP:
+		headY += 0.5;
+		break;
+	case GLUT_KEY_DOWN:
+		headY -= 0.5;
+		break;
+	case GLUT_KEY_RIGHT:
+		headZ -= 0.5;
+		break;
+	case GLUT_KEY_LEFT:
+		headZ += 0.5;
+		break;
+	default:
 			break;
 	}
 	resetValueVariable();
