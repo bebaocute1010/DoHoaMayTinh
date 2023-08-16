@@ -1,69 +1,68 @@
 ﻿  Oto.cpp
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(11,18): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(15,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(16,23): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(42,33): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(44,18): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(81,27): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(81,31): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(83,19): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(83,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(87,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(87,32): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(89,20): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(89,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(99,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(99,28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(101,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(101,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(106,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(107,20): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(124,14): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(171,87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(171,48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(171,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(179,87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(179,48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(179,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(187,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(193,114): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(193,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(193,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(199,75): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(199,49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(199,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(206,115): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(206,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(206,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(212,75): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(212,49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(212,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(218,43): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(218,18): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(220,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(221,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(222,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(224,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(225,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(227,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(228,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(229,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(231,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(232,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(234,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(235,57): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(236,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(238,58): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(239,58): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(241,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(242,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(243,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(244,59): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(252,54): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(253,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(253,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(262,53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(263,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(263,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Duc\Desktop\DHMT\Oto\Oto\Oto.cpp(271,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  Oto.vcxproj -> C:\Users\Duc\Desktop\DHMT\Oto\x64\Debug\Oto.exe
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(11,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(15,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(16,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(42,33): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(44,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(81,27): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(81,31): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(83,19): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(83,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(87,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(87,32): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(89,20): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(89,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(99,24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(99,28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(101,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(101,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(106,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(107,20): warning C4305: '=': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(124,14): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(173,37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(184,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(185,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(185,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(185,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(193,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(194,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(194,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(194,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(202,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(203,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(203,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(203,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(211,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(212,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(212,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(212,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(220,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(221,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(221,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(221,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(232,87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(232,48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(232,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(240,87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(240,48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(240,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(248,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(254,114): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(254,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(254,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(260,75): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(260,49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(260,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(267,115): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(267,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(267,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(273,75): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(273,49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(273,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(316,54): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(317,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(317,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(326,53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(327,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Subject\ĐHMT\DoHoaMayTinh\Oto\Oto.cpp(327,12): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  Oto.vcxproj -> D:\Subject\ĐHMT\DoHoaMayTinh\x64\Debug\Oto.exe
