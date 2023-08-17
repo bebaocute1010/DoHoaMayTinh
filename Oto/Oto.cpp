@@ -22,9 +22,9 @@ bool isDrawing = false;
 bool isMaxAngleWing = false;
 
 
-float eyeX = 5;
+float eyeX = 7;
 float eyeY = 5;
-float eyeZ = 5;
+float eyeZ =10;
 float centerX = 0;
 float centerY = 0;
 float centerZ = 0;
@@ -150,13 +150,13 @@ void display() {
 
 		//glutPostRedisplay();
 
-		glEnable(GL_LIGHTING);
-		glEnable(GL_LIGHT0);// mặc định đc truyền màu light1-7 k dc màu đen
-		GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
-		GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
-		GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
-		glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
-		glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+		//glEnable(GL_LIGHTING);
+		//glEnable(GL_LIGHT0);// mặc định đc truyền màu light1-7 k dc màu đen
+		//GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
+		//GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
+		//GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
+		//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
+		//glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
 
 		//Vẽ đầu
 		yellow();
@@ -164,6 +164,67 @@ void display() {
 		glTranslatef(headX, headY, headZ);
 		glutSolidSphere(headRadius, 30, 30);
 		glPopMatrix();
+
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		glPushMatrix();
+		glTranslatef(headX , headY, headZ - 1.3);
+		glRotatef(90, 0, 1, 0);
+		glScalef(1.0, 0.75, 0.75);
+		glutSolidSphere(1, 20, 20);
+		glPopMatrix();
+		
+		////thân nâu 1
+		
+		
+		glPushMatrix();
+		brown();
+		glTranslatef(headX, headY, headZ - 0.6);		
+		glScalef(0.37, 0.37, 0.3);
+		glutSolidTorus(0.5, 1, 20, 20);
+		glPopMatrix();
+		
+		//thân nâu 2
+		
+		glPushMatrix();
+		brown();
+		glTranslatef(headX, headY, headZ - 0.95);
+		glScalef(0.49, 0.49, 0.3);
+		glutSolidTorus(0.5, 1, 20, 20);
+		glPopMatrix();
+
+		//thân nâu 3
+		
+		glPushMatrix();
+		//black();
+		glTranslatef(headX, headY, headZ - 1.3);
+		glScalef(0.53, 0.53, 0.3);
+		glutSolidTorus(0.5, 1, 20, 20);
+		glPopMatrix();
+
+		//////thân nâu 4
+
+		glPushMatrix();
+		//black();
+		glTranslatef(headX, headY, headZ - 1.7);
+		glScalef(0.49, 0.49, 0.3);
+		glutSolidTorus(0.5, 1, 20, 20);
+		glPopMatrix();
+
+		//////thân nâu 5
+
+		glPushMatrix();
+		//black();
+		glTranslatef(headX, headY, headZ - 2.0);
+		glScalef(0.35, 0.35, 0.3);
+		glutSolidTorus(0.5, 1, 20, 20);
+		glPopMatrix();
+
+		
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		//Vẽ mắt trái
 		black();
@@ -215,7 +276,7 @@ void display() {
 
 
 		//Vẽ thân
-		drawCircles(1, .3, CODE_BLACK, MODE_UP, .004, RATE_WIDTH_CIRCLE/2);
+	/*	drawCircles(1, .3, CODE_BLACK, MODE_UP, .004, RATE_WIDTH_CIRCLE/2);
 
 		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_UP, .03, RATE_WIDTH_CIRCLE);
 		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_UP, .025, RATE_WIDTH_CIRCLE);
@@ -241,8 +302,11 @@ void display() {
 		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_DOWN, .009, RATE_WIDTH_CIRCLE);
 		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_DOWN, .015, RATE_WIDTH_CIRCLE);
 		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_DOWN, .02, RATE_WIDTH_CIRCLE);
-		drawCircles(7, curCircleRadius, CODE_YELLOW, MODE_DOWN, .033, RATE_WIDTH_CIRCLE);
+		drawCircles(7, curCircleRadius, CODE_YELLOW, MODE_DOWN, .033, RATE_WIDTH_CIRCLE);*/
+
 		//
+
+		
 
 		//Vẽ cánh trái
 		wingColor();
@@ -265,12 +329,12 @@ void display() {
 		glPopMatrix();
 
 		//Vẽ nọc
-		black();
+		/*black();
 		glPushMatrix();
 		glTranslatef(headX, headY, headZ - totalLengthBee);
 		glScalef(1, .2, 1);
 		glutSolidTetrahedron();
-		glPopMatrix();
+		glPopMatrix();*/
 
 		glFlush();
 
@@ -348,7 +412,7 @@ void update(int value) {
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(900, 700);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow(argv[0]);
 	init();
