@@ -10,6 +10,20 @@ float headY = 0.0;
 float headZ = 0.0;
 float headRadius = .6; // Bán kính của đầu
 
+float rotationAngle = 0.0;
+
+float objectX = 0.0;//cho quay quanh trục y
+float objectY = 0.0;
+float objectZ = 0.0;
+
+float initialObjectX = 0.0; // tọa độ đầu
+float initialObjectY = 0.0;
+float initialObjectZ = 0.0;
+
+bool isMovingBack = false;// Biến để kiểm tra xem vật đang di chuyển về vị trí đầu tiên hay không
+
+//float wingY = 0.0;
+
 float maxOuterRadius = 1;
 
 float totalLengthBee = headRadius / 1.18;
@@ -22,9 +36,9 @@ bool isDrawing = false;
 bool isMaxAngleWing = false;
 
 
-float eyeX = 7;
-float eyeY = 5;
-float eyeZ =10;
+float eyeX = 10;
+float eyeY = 7;
+float eyeZ = 15;
 float centerX = 0;
 float centerY = 0;
 float centerZ = 0;
@@ -70,13 +84,6 @@ void drawOxyz() {
 	glEnd();
 }
 
-void drawCircle(float innerRadius, float outerRadius, float zPoint) {
-	glPushMatrix();
-	glTranslatef(headX, headY, headZ - zPoint);
-	glutSolidTorus(innerRadius, outerRadius, (GLint)100, (GLint)100);
-	glPopMatrix();
-}
-
 void yellow() {
 	GLfloat diffuse[] = { 1, .9, .1, 1.0 };// as khuếch tán
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
@@ -107,25 +114,6 @@ void resetValueVariable() {
 	curCircleRadius = .33;
 }
 
-void drawCircles(int numberCircle, float startRadius, int color, int mode, float increaseRadius, float dis) {
-	for (int i = 0; i < numberCircle; i++)
-	{
-		if (color == CODE_YELLOW) {
-			yellow();
-		}
-		else if (color == CODE_BROWN) {
-			brown();
-		}
-		else if (color == CODE_BLACK) {
-			black();
-		}
-		float radius = mode == MODE_UP ? i * increaseRadius : -i * increaseRadius;
-		totalLengthBee += dis;
-		drawCircle(.04, startRadius + radius, totalLengthBee);
-		curCircleRadius = mode == MODE_UP ? curCircleRadius + increaseRadius : curCircleRadius - increaseRadius;
-	}
-}
-
 void drawArc(float startX, float startY, float startZ, float radius, float startAngle, float endAngle, int numSegments, float increaseZ = 0) {
 	glBegin(GL_LINE_STRIP);
 	for (int i = 0; i <= numSegments; ++i) {
@@ -144,87 +132,84 @@ void display() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glColor3f(0.0, 0.0, 0.0);
 		glLoadIdentity();
-
 		gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
+		
 		drawOxyz();
 
 		//glutPostRedisplay();
 
-		//glEnable(GL_LIGHTING);
-		//glEnable(GL_LIGHT0);// mặc định đc truyền màu light1-7 k dc màu đen
-		//GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
-		//GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
-		//GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
-		//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
-		//glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);// mặc định đc truyền màu light1-7 k dc màu đen
+		GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
+		GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
+		GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
+		glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
+		glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+
+
+		////////quay 360 
+		glTranslatef(objectX, objectY, objectZ);
+		glRotatef(rotationAngle, 0.0, 1.0, 0.0);
 
 		//Vẽ đầu
+
 		yellow();
 		glPushMatrix();
 		glTranslatef(headX, headY, headZ);
 		glutSolidSphere(headRadius, 30, 30);
 		glPopMatrix();
 
-
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+		// Vẽ thân		
 		glPushMatrix();
 		glTranslatef(headX , headY, headZ - 1.3);
-		glRotatef(90, 0, 1, 0);
-		glScalef(1.0, 0.75, 0.75);
+		glScalef(.75, .75, 1);
 		glutSolidSphere(1, 20, 20);
 		glPopMatrix();
 		
-		////thân nâu 1
-		
+		// Sọc
 		
 		glPushMatrix();
-		brown();
-		glTranslatef(headX, headY, headZ - 0.6);		
+		black();
+		glTranslatef(headX, headY, headZ - 0.65);		
 		glScalef(0.37, 0.37, 0.3);
 		glutSolidTorus(0.5, 1, 20, 20);
 		glPopMatrix();
 		
-		//thân nâu 2
-		
+		// Sọc
+
 		glPushMatrix();
-		brown();
+		black();
 		glTranslatef(headX, headY, headZ - 0.95);
 		glScalef(0.49, 0.49, 0.3);
 		glutSolidTorus(0.5, 1, 20, 20);
 		glPopMatrix();
 
-		//thân nâu 3
-		
+		// Sọc
+
 		glPushMatrix();
-		//black();
+		black();
 		glTranslatef(headX, headY, headZ - 1.3);
 		glScalef(0.53, 0.53, 0.3);
 		glutSolidTorus(0.5, 1, 20, 20);
 		glPopMatrix();
 
-		//////thân nâu 4
+		// Sọc
 
 		glPushMatrix();
-		//black();
+		black();
 		glTranslatef(headX, headY, headZ - 1.7);
 		glScalef(0.49, 0.49, 0.3);
 		glutSolidTorus(0.5, 1, 20, 20);
 		glPopMatrix();
 
-		//////thân nâu 5
+		// Sọc
 
 		glPushMatrix();
-		//black();
+		black();
 		glTranslatef(headX, headY, headZ - 2.0);
 		glScalef(0.35, 0.35, 0.3);
 		glutSolidTorus(0.5, 1, 20, 20);
 		glPopMatrix();
-
-		
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		//Vẽ mắt trái
 		black();
@@ -273,39 +258,6 @@ void display() {
 		glTranslatef(headX + headRadius * 1.27, headY + headRadius * 1.8, headZ + headRadius * .6);
 		glutSolidSphere(.06, 30, 30);
 		glPopMatrix();
-
-
-		//Vẽ thân
-	/*	drawCircles(1, .3, CODE_BLACK, MODE_UP, .004, RATE_WIDTH_CIRCLE/2);
-
-		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_UP, .03, RATE_WIDTH_CIRCLE);
-		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_UP, .025, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_UP, .03, RATE_WIDTH_CIRCLE);
-
-		drawCircles(5, curCircleRadius, CODE_BROWN, MODE_UP, .03, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_UP, .03, RATE_WIDTH_CIRCLE);
-
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_UP, .01, RATE_WIDTH_CIRCLE);
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_UP, .01, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_UP, .01, RATE_WIDTH_CIRCLE);
-
-		drawCircles(7, curCircleRadius, CODE_BROWN, MODE_UP, .01, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_UP, .01, RATE_WIDTH_CIRCLE);
-
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_UP, .009, RATE_WIDTH_CIRCLE);
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_UP, .006, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_UP, .006, RATE_WIDTH_CIRCLE);
-
-		drawCircles(7, curCircleRadius, CODE_BROWN, MODE_DOWN, .006, RATE_WIDTH_CIRCLE);
-		drawCircles(1, curCircleRadius, CODE_BLACK, MODE_DOWN, .006, RATE_WIDTH_CIRCLE);
-
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_DOWN, .009, RATE_WIDTH_CIRCLE);
-		drawCircles(3, curCircleRadius, CODE_YELLOW, MODE_DOWN, .015, RATE_WIDTH_CIRCLE);
-		drawCircles(5, curCircleRadius, CODE_YELLOW, MODE_DOWN, .02, RATE_WIDTH_CIRCLE);
-		drawCircles(7, curCircleRadius, CODE_YELLOW, MODE_DOWN, .033, RATE_WIDTH_CIRCLE);*/
-
-		//
-
 		
 
 		//Vẽ cánh trái
@@ -313,7 +265,7 @@ void display() {
 		glPushMatrix();
 		glRotatef(angleWing, 0, 0, -1);
 		glRotatef(40, 0, 0, 1);
-		glTranslatef(headX, headY + headRadius * 3,  headZ - totalLengthBee * .5);
+		glTranslatef(headX, headY + headRadius * 2, headZ - 1.2);
 		glScalef(.1, 1.3, .5);
 		glutSolidSphere(1, 30, 30);
 		glPopMatrix();
@@ -323,21 +275,21 @@ void display() {
 		glPushMatrix();
 		glRotatef(angleWing, 0,0,1);
 		glRotatef(40, 0, 0, -1);
-		glTranslatef(headX, headY + headRadius * 3, headZ - totalLengthBee * .5);
+		glTranslatef(headX, headY + headRadius * 2, headZ - 1.2);
 		glScalef(.1, 1.3, .5);
 		glutSolidSphere(1, 30, 30);
 		glPopMatrix();
 
+
 		//Vẽ nọc
-		/*black();
+		black();
 		glPushMatrix();
-		glTranslatef(headX, headY, headZ - totalLengthBee);
-		glScalef(1, .2, 1);
+		glTranslatef(headX, headY, headZ - 2);
+		glScalef(.5, .2, 1);
 		glutSolidTetrahedron();
-		glPopMatrix();*/
+		glPopMatrix();
 
 		glFlush();
-
 	/*	isDrawing = false;
 	}*/
 }
@@ -348,27 +300,74 @@ void reshape(int w, int h) {
 	glLoadIdentity();
 	glFrustum(-1, 1, -1, 1, 1.5, 20);
 	glMatrixMode(GL_MODELVIEW);
+	//gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
+	//gluLookAt(-7.0, 3.0, 5.0, 0, 0, 0, 0, 1, 0);
 }
 
-void keyPress(int key, int x, int y) {
+void specialKeyPress(int key, int x, int y) {
 	switch (key)
 	{
-	case GLUT_KEY_UP:
-		headY += 0.5;
+	/*case GLUT_KEY_UP:
+		eyeY += 0.5;
 		break;
 	case GLUT_KEY_DOWN:
-		headY -= 0.5;
+		eyeY -= 0.5;
 		break;
 	case GLUT_KEY_RIGHT:
-		headZ -= 0.5;
+		eyeZ -= 0.5;
 		break;
 	case GLUT_KEY_LEFT:
-		headZ += 0.5;
+		eyeZ += 0.5;
 		break;
 	default:
-			break;
+			break;*/
+
 	}
 	resetValueVariable();
+	glutPostRedisplay();
+}
+
+void keyboardPress(unsigned char key, int x, int y) {
+	switch (key)
+	{
+		case 'r':/// phím r quay 360 quanh y
+            rotationAngle += 1.0; // Tăng góc quay lên 5 độ
+            if (rotationAngle >= 360.0) {
+                rotationAngle -= 360.0; // Đảm bảo góc không vượt quá 360 độ
+            }
+            glutPostRedisplay();
+            break;
+		case 'm':
+			isMovingBack = true;
+			glutPostRedisplay();
+			break;
+
+		/*case 'l':
+			eyeX += .5;
+			break;
+		case 'k':
+			eyeX -= .5;
+			break;*/
+		case 'w':
+			headY += 0.0;
+			break;
+		/*case 's':
+			headY -= 0.1;
+			break;
+		case 'd':
+			headZ -= 0.1;
+			break;
+		case 'a':
+			headZ += 0.1;
+			break;
+		default:
+			break;*/
+	
+	}
+	if (key == 27) { // Phím ESC
+		exit(0);
+	}
+
 	glutPostRedisplay();
 }
 
@@ -387,25 +386,33 @@ void mouseClick(int button, int state, int x, int y) {
 }
 
 void update(int value) {
-	/*headY += .2;
-	headZ += .3;*/
+	//headY += .2;
+	headZ += .1;
 
 	if (!isMaxAngleWing) {
-		angleWing += 2;
+		angleWing += 2.0;
 		if (angleWing >= 90) {
 			isMaxAngleWing = true;
 		}
 	}
 	else {
-		angleWing -= 2;
+		angleWing -= 2.0;
 		if (angleWing <= 40) {
 			isMaxAngleWing = false;
 		}
+
+	}
+
+	if (isMovingBack && objectZ < headZ) {
+		objectZ -= 0.01; // Giảm tọa độ X theo tốc độ di chuyển
+	}
+	else {
+		isMovingBack = false;
 	}
 
 	resetValueVariable();
 	glutPostRedisplay();
-	glutTimerFunc(1, update, 0);
+	glutTimerFunc(50, update, 0);
 }
 
 
@@ -416,7 +423,8 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow(argv[0]);
 	init();
-	glutSpecialFunc(keyPress);
+	glutSpecialFunc(specialKeyPress);
+	glutKeyboardFunc(keyboardPress);
 	glutMouseFunc(mouseClick);
 	glutDisplayFunc(display);
 	glutTimerFunc(0, update, 1);
